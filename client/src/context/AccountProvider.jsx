@@ -5,6 +5,7 @@ const AccountProvider = ({ children }) => {
   const [account, setAccount] = useState();
   const [activeUsers,setActiveUsers]=useState();
   const [newmessages,setnewMessages]=useState(false);
+  const [openStory,setOpenStory]=useState(false);
   const [open, setOpen] = useState(false);
   const socket=useRef();
 
@@ -20,7 +21,8 @@ const AccountProvider = ({ children }) => {
         activeUsers,
         setActiveUsers,
         newmessages,
-        setnewMessages,open,setOpen
+        setnewMessages,open,setOpen,
+        openStory,setOpenStory
       }}
     >
       {children}

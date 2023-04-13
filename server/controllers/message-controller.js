@@ -7,7 +7,7 @@ export const newMessage=async (req,res)=>{
     try {
         await newMessage.save();
         // console.log(req.body);
-        let data=await conversation.findById(req.body.conversationId);
+        // let data=await conversation.findById(req.body.conversationId);
         // console.log('data is here ',data);
         let message=await conversation.findByIdAndUpdate(req.body.conversationId, { messages: req.body.text });
         console.log('this is the updated message ',message);

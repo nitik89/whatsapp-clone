@@ -6,6 +6,7 @@ import HeaderMenu from "./HeaderMenu";
 import InfoDrawer from "../../drawer/InfoDrawer";
 import HistoryToggleOffIcon from '@mui/icons-material/HistoryToggleOff';
 import { useState } from "react";
+import Story from "../../story/story";
 
 const Component = styled(Box)`
   height: 44px;
@@ -36,6 +37,13 @@ const Image = styled("img")({
 const Header = () => {
   const { account } = useContext(AccountContext);
   const [openDrawer, setOpenDrawer] = useState();
+  const {open,setOpen}=useContext(AccountContext);
+
+  const handleClickOpen = () => {
+    console.log("pressed");
+    setOpen(true);
+  };
+
 
   const toggleDrawer = () => {
     setOpenDrawer(true);
@@ -52,11 +60,12 @@ const Header = () => {
         />
         <Wrapper>
           <MessageIcon />
-          <HistoryToggleOffIcon/>
+          <HistoryToggleOffIcon onClick={handleClickOpen}/>
           <HeaderMenu setOpenDrawer={setOpenDrawer} />
         </Wrapper>
       </Component>
       <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} />
+      <Story open={open} setOpen={setOpen}/>
     </>
   );
 };

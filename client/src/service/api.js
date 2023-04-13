@@ -66,3 +66,29 @@ export const uploadFile=async (data)=>{
         console.log(err.message);
     }
 }
+export const uploadStory=async (data)=>{
+    try{
+        console.log(data);
+        return await axios.post(`${url}/story/upload`,data);
+    }
+    catch(err){
+        console.log(err.message);
+    }
+}
+export const getMyUsers=async()=>{
+    try{
+      return  await axios.get(`${url}/story/get`)
+    }
+    catch(err){
+        console.log(err.message);
+    
+    }
+}
+export const getStoryDetails=async(id)=>{
+    try{
+        return await axios.get(`${url}/story/getStory/${id}`,)
+    }
+    catch(err){
+        console.log(err.message);
+    }
+}
